@@ -1,0 +1,54 @@
+---
+test-cases:
+  - summary: |
+    Проверка поддержки сайтом русского языка
+    status: fail
+  
+  - summary: |
+    Проверка фильтра поиска по цене товаров при введении в поле "From" число превыщающее цену самого дорого товара
+    status: fail
+
+  - summary: |
+    Проверка кроссплатформенности
+    status: fail
+    
+bugreports:
+  - summary: |
+    Сайт криво поддерживает русский язык
+  environment: |
+    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app
+    2. Нажать на кнопку "Language"
+    3. Нажать на кнопку "Russian"
+  expected-result: |
+    Интерфейс страницы поменяется на русский язык кроме названий производетелй и товаров
+  actual-result: |
+    Во вкладке "Category", а также в описании товара язык остался английским
+    
+  - summary: |
+    Не работает требования о том что пользователь не может ввести сумму превышающую цену самого дорого товара
+  environment: |
+    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app
+    2. Вводим в поле "From" 10000
+  expected-result: |
+    Невозможно ввести число больше цены самого дорогого товара
+  actual-result: |
+    Можно ввести число больше цены самого дорого товара в магазине
+    Появляется сообщение "Nothing found!"
+    
+  - summary: |
+    Сайт неккоретно отображается на мобильном устройстве
+  environment: |
+    Google Chrome
+    ОС MIUI Global 13.0.4
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app с мобильного устройства
+  expected-result: |
+    Сайт корректно отображается
+  actual-result: |
+    Сайт неккоректно отображается
