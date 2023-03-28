@@ -1,6 +1,6 @@
 ---
 - summary: |
-    Сайт криво поддерживает русский язык
+    Интерфейс сайта не полностью переходит на русский язык
   environment: |
     Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
     ОС Windows 10
@@ -38,3 +38,145 @@
     Сайт корректно отображается
   actual-result: |
     Сайт неккоректно отображается
+
+- summary: |
+    При отключении функции "in stock" все товары пропадают
+  environment: |
+    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app
+    2. Нажать на кнопку "in stock"
+  expected-result: |
+    Отображается весь товар магазина
+  actual-result: |
+    Не отображается ни один товар
+    Появляется сообщение "Nothing found!"
+    
+- summary: |
+    Пользователь может ввести отрицательное число в поля фильтров по цене
+  environment: |
+    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app
+    2. Вводим в поле "From" -100
+    3. Вводим в поле "To" -5000
+  expected-result: |
+    Невозможно ввести отрицательные числа
+  actual-result: |
+    Можно ввести отрицательное число 
+    Появляется сообщение "Nothing found!"
+    
+- summary: |
+    Фильтр по цене товара отображает товары только по актульной цене
+  environment: |
+    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app
+    2. Вводим в поле "From" 100
+    3. Вводим в поле "To" 499
+  expected-result: |
+    Отображается товар c актуальной ценой от 100$ до 499$ включительно
+  actual-result: |
+    Отображается товар с ценой без скидки от 100$ до 499$
+    
+- summary: |
+    Пользователь не может перейти по "#" в список товаров по категории "#"
+  environment: |
+    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
+    ОС Windows 10
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app
+    2. Нажимаем на окно Huawei P30
+    3. Нажимаем на кнопку "#smartphones"
+  expected-result: |
+    Пользователя переносит на страницу магазина где предоставлены только смартфоны
+  actual-result: |
+    Ничего не происходит
+    
+- summary: |
+    На мобильном устройстве интерфейс сайта не полностью переходит на русский язык 
+  environment: |
+    Google Chrome 
+    MIUI Global 13.0.4
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app с мобильного устройства
+    2. Нажать на кнопку "Language"
+    3. Нажать на кнопку "Russian"
+  expected-result: |
+    Интерфейс страницы поменяется на русский язык кроме названий производетелй и товаров
+  actual-result: |
+    Во вкладке "Category", а также в описании товара язык остался английским
+    
+- summary: |
+    Не работает требования о том что пользователь не может ввести сумму превышающую цену самого дорого товара
+  environment: |
+    Google Chrome
+    MIUI Global 13.0.4
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app с мобильного устройства
+    2. Вводим в поле "From" 10000
+  expected-result: |
+    Невозможно ввести число больше цены самого дорогого товара
+  actual-result: |
+    Можно ввести число больше цены самого дорого товара в магазине
+    Появляется сообщение "Nothing found!"
+    
+- summary: |
+    При отключении функции "in stock" все товары пропадают
+  environment: |
+    Google Chrome
+    MIUI Global 13.0.4
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app с мобильного устройства
+    2. Нажать на кнопку "in stock"
+  expected-result: |
+    Отображается весь товар магазина
+  actual-result: |
+    Не отображается ни один товар
+    Появляется сообщение "Nothing found!"
+    
+    - summary: |
+    Пользователь может ввести отрицательное число в поля фильтров по цене
+  environment: |
+    Google Chrome   107.0.5304.121 (Официальная сборка) (64 бит)
+    MIUI Global 13.0.4
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app с мобильного устройства
+    2. Вводим в поле "From" -100
+    3. Вводим в поле "To" -5000
+  expected-result: |
+    Невозможно ввести отрицательные числа
+  actual-result: |
+    Можно ввести отрицательное число 
+    Появляется сообщение "Nothing found!"
+    
+    - summary: |
+    Фильтр по цене товара отображает товары только по актульной цене
+  environment: |
+    Google Chrome 
+    MIUI Global 13.0.4
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app с мобильного устройства
+    2. Вводим в поле "From" 100
+    3. Вводим в поле "To" 499
+  expected-result: |
+    Отображается товар c актуальной ценой от 100$ до 499$ включительно
+  actual-result: |
+    Отображается товар с ценой без скидки от 100$ до 499$
+
+- summary: |
+    Пользователь не может перейти по "#" в список товаров по категории "#"
+  environment: |
+    Google Chrome
+    MIUI Global 13.0.4
+  steps-to-reproduce: |
+    1. Зайти на страницу магазина https://hexlet-products-store.vercel.app с мобильного устройства
+    2. Нажимаем на окно Huawei P30
+    3. Нажимаем на кнопку "#smartphones"
+  expected-result: |
+    Пользователя переносит на страницу магазина где предоставлены только смартфоны
+  actual-result: |
+    Ничего не происходит
