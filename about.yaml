@@ -3,10 +3,6 @@ name: Kalioglo Nikolay
 job: QA Engineer
 level: junior
 email: nikolay_nikolaev_18@mail.ru
-description: |
-  Это текст-описание в свободной форме. Здесь можно рассказать пару интересных фактов про себя
-
-  Текст может быть написан в несколько абзацев
 skills: 
   - написание тест-кейсов 
   - функциональное тестирование
